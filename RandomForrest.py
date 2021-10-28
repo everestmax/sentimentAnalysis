@@ -19,7 +19,7 @@ from sklearn.metrics import classification_report, confusion_matrix, accuracy_sc
 
 TRAIN_PERCENTAGE = 0.67
 
-filename = 'Transcripts.csv'
+filename = 'Data/Transcripts.csv'
 
 data = read_csv(filename, skiprows = lambda x: (x != 0) and not x%2)
 
@@ -89,3 +89,13 @@ with open('RandomForrest.Model', 'wb') as f:
     pickle.dump(classifier, f)
 
 pickle.dump(tfidfconverter.vocabulary_,open("feature.pkl","wb"))
+
+
+### Test a custom phrase
+# =============================================================================
+# test = ['Hello im phoning from barclays bank']
+# test_vector = tfidfconverter.fit_transform(test).toarray()
+# custom_output = classifier.predict(test_vector)
+# print(custom_output)
+# =============================================================================
+
